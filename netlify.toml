@@ -1,0 +1,10 @@
+# The app lives in the proto/ subfolder: a static site plus Netlify Functions.
+# The build command only installs the functions' npm dependencies. Once Netlify
+# switches to this base directory it reads proto/netlify.toml, which repeats
+# these settings and adds the function schedule and the /api redirect.
+# Paths are relative to the base directory.
+[build]
+  base = "proto"
+  command = "npm install --no-audit --no-fund"
+  publish = "public"
+  functions = "netlify/functions"
